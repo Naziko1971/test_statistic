@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результаты теста</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; text-align: center; }
+        h1 { color: #333; }
+        p { font-size: 1.1em; margin-bottom: 10px; }
+        .level { font-size: 1.3em; font-weight: bold; color: #007bff; margin-top: 20px; }
+        .home-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #6c757d;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .home-btn:hover { background-color: #5a6268; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Тест завершен!</h1>
+        <p>Уважаемый(ая) {{ student_name }},</p>
+        <p>Ваш результат: {{ score }} из {{ total_questions }} вопросов.</p>
+        <p>Это составляет: {{ "%.2f" | format(percentage) }}%</p>
+        <p class="level">Ваш уровень: {{ level }}</p>
+        <a href="/" class="home-btn">Вернуться на главную</a>
+    </div>
+</body>
+</html>

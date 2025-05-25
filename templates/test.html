@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пройти тест</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; }
+        h1 { text-align: center; color: #333; }
+        .question { margin-bottom: 20px; padding: 15px; border: 1px solid #eee; border-radius: 5px; background-color: #f9f9f9; }
+        .question p { font-weight: bold; margin-bottom: 10px; }
+        .options label { display: block; margin-bottom: 8px; cursor: pointer; }
+        .options input[type="radio"] { margin-right: 10px; }
+        .submit-btn {
+            display: block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .submit-btn:hover { background-color: #218838; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Пройти тест</h1>
+        <form method="POST" action="/test">
+            <label for="student_name">Ваше имя:</label>
+            <input type="text" id="student_name" name="student_name" required><br><br>
+
+            {% for q in questions %}
+                <div class="question">
+                    <p>Вопрос {{ loop.index }}: {{ q.question_text }}</p>
+                    <div class="options">
+                        {% for option in q.options %}
+                            <label>
+                                <input type="radio" name="question_{{ q.id }}" value="{{ loop.index }}" required>
+                                {{ option }}
+                            </label>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+            <button type="submit" class="submit-btn">Завершить тест</button>
+        </form>
+    </div>
+</body>
+</html>
