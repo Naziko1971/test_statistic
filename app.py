@@ -59,7 +59,7 @@ def assign_level(score, total_questions):
     elif percentage >= 50:
         return "Начальный (Beginner)"
     else:
-        return "Нуждается в улучшении (Needs Improvement)"
+        return "Дайындалу керек (Needs Improvement)"
 
 @app.route('/')
 def index():
