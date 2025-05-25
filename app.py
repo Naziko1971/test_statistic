@@ -160,5 +160,7 @@ def api_results():
     return jsonify(results)
 
 if __name__ == '__main__':
-    init_db() # Инициализируем базу данных и загружаем вопросы
-    app.run(debug=True) # debug=True только для разработки
+    init_db()
+else:
+    init_db # Инициализируем базу данных и загружаем вопросы
+   # debug=True только для разработки
